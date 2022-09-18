@@ -4,42 +4,38 @@ let searchString = "";
 
 getData(sizeBooks, pageBooks, searchString);
 
-function search() {
-  let inputValue = document.querySelector('.input-search').value;
-
+function pageEvent() {
   document.querySelector('.pagination').innerHTML = "";
   document.querySelector('.books').innerHTML = "";
 
-  getData(sizeBooks, pageBooks, inputValue);
+  getData(sizeBooks, pageBooks, searchString);
+}
+
+function search() {
+  searchString = document.querySelector('.input-search').value;
+  pageEvent();
 }
 
 function changeSizeBooks(size) {
   sizeBooks = size;
-
-  document.querySelector('.pagination').innerHTML = "";
-  document.querySelector('.books').innerHTML = "";
-
-  getData(sizeBooks, pageBooks);
+  pageEvent();
 }
 
 function insertCounterPages(counter) {
   pageBooks = counter - 1;
-
-  document.querySelector('.pagination').innerHTML = "";
-  document.querySelector('.books').innerHTML = "";
-
-  getData(sizeBooks, pageBooks);
+  pageEvent();
 }
 
 function getData(sizeBooks, pageBooks, searchString) {
   const url = `https://it-academy-js-api-zmicerboksha.vercel.app/api/course/books?size=${sizeBooks}&page=${pageBooks}&search=${searchString}`;
 
-  axios.get(url).then(
-    response => {
+  fetch(url)
+  .then((response) => response.json())
+  .then(data => {
       //добавляем пагинацию
       let counterHTML = 1;
   
-      for (let i = 0; i < response.data.totalPages; i++) {
+      for (let i = 0; i < data.totalPages; i++) {
         const pageItem = document.createElement("li");
         pageItem.classList.add('page-item');
         
@@ -51,12 +47,12 @@ function getData(sizeBooks, pageBooks, searchString) {
 
         if (pageBooks === i) { pageItem.classList.add('active') }
       }
-  
-      console.log(response.data)
+
+      console.log(searchString)
   
       // добавляем книги
-      for (let i = 0; i < response.data.content.length; i++) {
-        const book = response.data.content[i];
+      for (let i = 0; i < data.content.length; i++) {
+        const book = data.content[i];
         const newDiv = document.createElement("div");
         newDiv.classList.add('book')
   
