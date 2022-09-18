@@ -1,7 +1,26 @@
 let sizeBooks = 20;
 let pageBooks = 0;
+let searchString = "";
 
-getData(sizeBooks, pageBooks);
+getData(sizeBooks, pageBooks, searchString);
+
+function search() {
+  let inputValue = document.querySelector('.input-search').value;
+
+  document.querySelector('.pagination').innerHTML = "";
+  document.querySelector('.books').innerHTML = "";
+
+  getData(sizeBooks, pageBooks, inputValue);
+}
+
+function changeSizeBooks(size) {
+  sizeBooks = size;
+
+  document.querySelector('.pagination').innerHTML = "";
+  document.querySelector('.books').innerHTML = "";
+
+  getData(sizeBooks, pageBooks);
+}
 
 function insertCounterPages(counter) {
   pageBooks = counter - 1;
@@ -12,8 +31,8 @@ function insertCounterPages(counter) {
   getData(sizeBooks, pageBooks);
 }
 
-function getData(sizeBooks, pageBooks) {
-  const url = `https://it-academy-js-api-zmicerboksha.vercel.app/api/course/books?size=${sizeBooks}&page=${pageBooks}`;
+function getData(sizeBooks, pageBooks, searchString) {
+  const url = `https://it-academy-js-api-zmicerboksha.vercel.app/api/course/books?size=${sizeBooks}&page=${pageBooks}&search=${searchString}`;
 
   axios.get(url).then(
     response => {

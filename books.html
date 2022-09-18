@@ -9,7 +9,7 @@
   <body>
     <div class="search-container">
       <div class="input-group">
-        <select class="form-select" id="pagesSelect">
+        <select class="form-select" id="pagesSelect" onchange="changeSizeBooks(this.value)">
           <option value="20" selected>20</option>
           <option value="30">30</option>
           <option value="50">50</option>
@@ -18,7 +18,7 @@
       </div>
       <div class="input-group">
         <input type="search" class="form-control rounded input-search" placeholder="Search" aria-label="Search" aria-describedby="search-addon"/>
-        <button type="button" class="btn btn-outline-primary search">search</button>
+        <button type="button" class="btn btn-outline-primary search" onclick="search()">search</button>
       </div>
     </div>
     <table class="table table-striped">
