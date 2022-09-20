@@ -22,7 +22,7 @@ function transfer(from, to) {
 }
 
 function getData(newDate) {
-  fetch(`https://www.nbrb.by/api/exrates/rates/145?ondate=${date}&periodicity=0`)
+  fetch(`https://www.nbrb.by/api/exrates/rates/145?ondate=${newDate}&periodicity=0`)
     .then((response) => response.json())
     .then((data) => {
       arrayRate.push(data.Cur_OfficialRate);
