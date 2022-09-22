@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/users.css">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="add">
+      <p>Add user</p>
+      <input type="text" id="email" placeholder="Email">
+      <input type="text" id="firstName" placeholder="First name">
+      <input type="text" id="lastName" placeholder="Last Name">
+      <input type="text" id="address" placeholder="Address">
+      <select name="gender" id="gender">
+        <option value="male">male</option>
+        <option value="female">female</option>
+      </select>
+      <select name="active" id="active">
+        <option value="true">true</option>
+        <option value="false">false</option>
+      </select>
+      <button onclick="addUser()">Submit</button>
+    </div>
+
+    <div class="delete">
+      <p>Delete user</p>
+      <input type="text" id="user-id" placeholder="ID">
+      <button onclick="deleteUser()">Delete</button>
+    </div>
+
+    <div class="getting">
+      <button onclick="getUsers()">Получить пользователей</button>
+      <div class="result"></div>
+    </div>
+  </body>
+
+  <script src="./js/users.js"></script>
+</html>
