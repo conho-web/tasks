@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict'
+        class AirPlane {
+            constructor(type, weight, fuelTank) {
+                this.type = type;
+                this.weight = weight;
+                this.fuelTank = fuelTank;
+                this.fuel = 0;
+            }
+            getinfo() {
+                return `${this.type}  ${this.weight}`
+            }
+            setFuelLevel(number) {
+                if (this.fuel + number > this.fuelTank) {
+                    return `Такое кол-во топлива не влазит. Ваш остаток: (${(this.fuel + number) - this.fuelTank})`
+                } else {
+                    return this.fuel += number
+                }
+            }
+            setFullTank() {
+                return this.fuel = this.fuelTank
+            }
+            setEmptyTank() {
+                return this.fuel = 0
+            }
+            setPylotInfo(name, number) {
+                this.name = name;
+                this.number = number;
+                return `Информация о пилоте задана`
+            }
+            getPylotInfo() {
+                return `Пилот данного рейса: ${this.name} ${this.number}`
+            }
+            getCurrentWeight() {
+                return `Текущий вес самолета: ${this.weight + this.fuel}`
+            }
+        }
+        class PassengerPlane extends AirPlane {
+            constructor(type, weight, fuelTank, passengersNumber) {
+                super(type, weight, fuelTank);
+                this.passengersNumber = passengersNumber
+            }
+            getinfo() {
+                return `Информация о пассажирском самолете: ${this.type} ${this.passengersNumber}`
+            }
+        }
+        class Freighter extends AirPlane {
+            constructor(type, weight, fuelTank, loadCapacity) {
+                super(type, weight, fuelTank);
+                this.loadCapacity = loadCapacity;
+                this.capacity = 0;
+            }
+            addLoad(number) {
+                if (this.capacity + number > this.loadCapacity) {
+                    return `Столько загрузить невозможно. Такое кол-во не влезит: ${this.capacity + number - this.loadCapacity}`
+                } else {
+                    return this.capacity += number;
+                }
+            }
+            resetLoad() {
+                return this.capacity = 0
+            }
+            getCurrentWeight() {
+                return `Текущий вес самолета: ${this.weight + this.fuel + this.capacity}`
+            }
+        }
+        let airPlane = new AirPlane('QWE', 2000, 1000);
+        console.log(airPlane.getinfo());
+        console.log(airPlane.setFuelLevel(100));
+        console.log(airPlane.setFuelLevel(200));
+        console.log(airPlane.getCurrentWeight());
+        console.log(airPlane.setPylotInfo('John', 1234));
+        console.log(airPlane.getPylotInfo());
+        console.log(airPlane.getCurrentWeight());
+        let passengerPlane = new PassengerPlane('Passenger', 2000, 1000, 50);
+        console.log(passengerPlane.getinfo());
+        let freighter = new Freighter('Freght', 2000, 1000, 5000);
+        console.log(freighter.setFuelLevel(500));
+        console.log(freighter.getCurrentWeight());
+    </script>
+</body>
+
+</html>
