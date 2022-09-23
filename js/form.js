@@ -1,5 +1,4 @@
 const body = document.body;
-
 const btn = document.querySelector(".button");
 
 let firstForm = {
@@ -75,74 +74,6 @@ const generateForm = (form) => {
   let chosenForm = document.createElement("div");
   chosenForm.classList.add('chosenForm');
 
-  //for (let i = 0; i < firstForm.fields.length; i++) {
-  //  chosenForm.innerHTML =
-  //    chosenForm.innerHTML +
-  //    `
-  //      <label for="${form.fields[i].label}">
-  //        ${form.fields[i].label}
-  //        <input id="${form.fields[i].label}" placeholder="${form.fields[i].name}" type="${form.fields[i].control}" maxlength="${form.fields[i].max}" />
-  //      </label>
-  //  `;
-  //}
-
-  //let otherFields = [
-  //  {
-  //    control: "number",
-  //    name: "age",
-  //    label: "Age",
-  //    min: 1,
-  //    max: 100,
-  //  },
-  //  {
-  //    control: "checkbox",
-  //    name: "active",
-  //    label: "Active",
-  //  },
-  //  {
-  //    name: "description",
-  //    label: "Description",
-  //    rows: 5,
-  //  },
-  //  {
-  //    name: "gender",
-  //    label: "Gender",
-  //    options: [
-  //      {
-  //        value: "man",
-  //      },
-  //      {
-  //        value: "woman",
-  //      },
-  //    ],
-  //  },
-  //];
-
-  //chosenForm.innerHTML += `
-  //    <label for="${otherFields[0].label}">
-  //      ${otherFields[0].label}
-  //      <input id="${otherFields[0].label}" placeholder="${otherFields[0].name}" type="${otherFields[0].control}" max="${otherFields[0].max}" min="${otherFields[0].min}" />
-  //    </label>
-
-  //        <label for="${otherFields[1].label}">
-  //          ${otherFields[1].label}
-  //          <input id="${otherFields[1].label}" placeholder="${otherFields[1].name}" type="${otherFields[1].control}" />
-  //        </label>
-
-  //        <label for="${otherFields[2].label}">
-  //          ${otherFields[2].label}
-  //          <textarea id="${otherFields[2].label}" name="${otherFields[2].name}" rows="${otherFields[2].rows}"></textarea>
-  //        </label>
-
-  //        <label for="${otherFields[3].name}">
-  //          ${otherFields[3].name}
-  //          <select>
-  //            <option>${otherFields[3].options[0].value}</option>
-  //            <option>${otherFields[3].options[1].value}</option>
-  //          </select>
-  //        </label>
-
-  //  `;
   chosenForm.innerHTML = `
     <form>
       <p>formName: ${form.name}</p>
