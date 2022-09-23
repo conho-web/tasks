@@ -73,6 +73,7 @@ let firstForm = {
 
 const generateForm = (form) => {
   let chosenForm = document.createElement("div");
+  chosenForm.classList.add('chosenForm');
 
   //for (let i = 0; i < firstForm.fields.length; i++) {
   //  chosenForm.innerHTML =
@@ -196,5 +197,11 @@ const generateForm = (form) => {
 
     </form>
   `;
-  body.appendChild(chosenForm);
+
+  localStorage.setItem("form", chosenForm.outerHTML);
 };
+
+let resultForm = document.createElement("div");
+resultForm.innerHTML = localStorage.getItem("form");
+
+body.appendChild(resultForm)
