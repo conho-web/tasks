@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #login {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      } 
+    </style>
+    <body>
+      <main role="main">
+        <div class="jumbotron" id="login">
+          <div class="container-sm">
+            <h4>Для входа в систему введите имя пользователя</h4>
+            <form class="form-signin" action="javascript:void(0);">
+              <div class="form-group">
+                <input id="inputLogin" class="form-control" placeholder="" required="" autofocus="">
+              </div>
+              <button class="btn btn-lg btn-primary btn-block" id="login-button" onclick="checkLogin()">Войти</button>
+            </form>
+          </div>
+        </div>
+      </main>
+  </body>
+</head>
+
+<script src="./js/login-notes.js"></script>
+
+</html>
